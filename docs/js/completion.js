@@ -12,12 +12,16 @@ function setCompleted(path, done) {
 }
 
 function getPagePath() {
-  const base = (document.querySelector('meta[name="base_url"]')?.content || document.querySelector("base")?.href || "/").replace(/\/$/, "");
-  let path = location.pathname;
-  if (base && path.startsWith(new URL(base, location.origin).pathname)) {
-    path = path.slice(new URL(base, location.origin).pathname.length);
+  // Extract path relative to site root by finding known content directories
+  const path = location.pathname.replace(/\/$/, "").replace(/^\//, "");
+  const knownPrefixes = ["transactions", "distributed-systems", "geospatial", "search", "media", "probabilistic"];
+  for (const prefix of knownPrefixes) {
+    const idx = path.indexOf(prefix + "/");
+    if (idx !== -1) return path.slice(idx);
   }
-  return path.replace(/\/$/, "").replace(/^\//, "") || "index";
+  // Home page or unknown
+  if (path.endsWith("index") || path === "") return "index";
+  return path;
 }
 
 function addCheckboxToPage() {
@@ -51,12 +55,12 @@ function updateSidebar() {
     // Resolve relative href to absolute path
     const a = document.createElement("a");
     a.href = href;
-    const base = (document.querySelector('meta[name="base_url"]')?.content || document.querySelector("base")?.href || "/").replace(/\/$/, "");
-    let resolved = a.pathname;
-    if (base && resolved.startsWith(new URL(base, location.origin).pathname)) {
-      resolved = resolved.slice(new URL(base, location.origin).pathname.length);
+    let resolved = a.pathname.replace(/\/$/, "").replace(/^\//, "");
+    const knownPrefixes = ["transactions", "distributed-systems", "geospatial", "search", "media", "probabilistic"];
+    for (const prefix of knownPrefixes) {
+      const idx = resolved.indexOf(prefix + "/");
+      if (idx !== -1) { resolved = resolved.slice(idx); break; }
     }
-    resolved = resolved.replace(/\/$/, "").replace(/^\//, "") || "index";
 
     link.classList.toggle("completed-page", !!completed[resolved]);
   });
