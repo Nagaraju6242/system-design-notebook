@@ -12,7 +12,12 @@ function setCompleted(path, done) {
 }
 
 function getPagePath() {
-  return location.pathname.replace(/\/$/, "").replace(/^\//, "") || "index";
+  const base = (document.querySelector('meta[name="base_url"]')?.content || document.querySelector("base")?.href || "/").replace(/\/$/, "");
+  let path = location.pathname;
+  if (base && path.startsWith(new URL(base, location.origin).pathname)) {
+    path = path.slice(new URL(base, location.origin).pathname.length);
+  }
+  return path.replace(/\/$/, "").replace(/^\//, "") || "index";
 }
 
 function addCheckboxToPage() {
@@ -46,7 +51,12 @@ function updateSidebar() {
     // Resolve relative href to absolute path
     const a = document.createElement("a");
     a.href = href;
-    const resolved = a.pathname.replace(/\/$/, "").replace(/^\//, "") || "index";
+    const base = (document.querySelector('meta[name="base_url"]')?.content || document.querySelector("base")?.href || "/").replace(/\/$/, "");
+    let resolved = a.pathname;
+    if (base && resolved.startsWith(new URL(base, location.origin).pathname)) {
+      resolved = resolved.slice(new URL(base, location.origin).pathname.length);
+    }
+    resolved = resolved.replace(/\/$/, "").replace(/^\//, "") || "index";
 
     link.classList.toggle("completed-page", !!completed[resolved]);
   });
