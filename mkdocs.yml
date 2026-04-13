@@ -1,0 +1,84 @@
+site_name: System Design Domain Knowledge
+site_description: A comprehensive guide to system design concepts for interviews and real-world engineering
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+  icon:
+    logo: material/book-open-variant
+
+markdown_extensions:
+  - tables
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.details
+  - toc:
+      permalink: true
+
+extra_css:
+  - css/completion.css
+
+extra_javascript:
+  - js/completion.js
+
+nav:
+  - Home: index.md
+  - Transactions:
+    - Database Transactions: transactions/database-transactions.md
+    - Database Isolation Levels: transactions/database-isolation-levels.md
+    - Database Locking & Concurrency: transactions/database-locking-and-concurrency.md
+    - Pessimistic Locking Strategies: transactions/pessimistic-locking-strategies.md
+    - Optimistic Locking Patterns: transactions/optimistic-locking-patterns.md
+    - Flash Sale Inventory Patterns: transactions/flash-sale-inventory-patterns.md
+  - Distributed Systems:
+    - Introduction to Distributed Systems: distributed-systems/introduction-to-distributed-systems.md
+    - CAP and PACELC Theorem: distributed-systems/cap-and-pacelc-theorem.md
+    - Consistency Models: distributed-systems/consistency-models.md
+    - Distributed Transactions: distributed-systems/distributed-transactions.md
+    - Failure Handling Patterns: distributed-systems/failure-handling-patterns.md
+    - Consensus Algorithms: distributed-systems/consensus-algorithms.md
+  - Geospatial Search:
+    - Geospatial Search Introduction: geospatial/geospatial-search-introduction.md
+    - Geohash: geospatial/geohash.md
+    - QuadTrees: geospatial/quadtrees.md
+    - H3 Hexagonal Indexing: geospatial/h3-hexagonal-indexing.md
+    - Space-Filling Curves & Hilbert's Curve: geospatial/space-filling-curves-and-hilberts-curve.md
+    - Google's S2 Library: geospatial/googles-s2-library.md
+    - Designing a Map Rendering Service: geospatial/designing-a-map-rendering-service.md
+    - Choosing a Spatial Index: geospatial/choosing-a-spatial-index.md
+  - Search Engine Mechanics:
+    - Inverted Index Fundamentals: search/inverted-index-fundamentals.md
+    - TF-IDF Scoring Explained: search/tf-idf-scoring-explained.md
+    - BM25 and Parameter Tuning: search/bm25-and-parameter-tuning.md
+    - Elasticsearch Architecture Essentials: search/elasticsearch-architecture-essentials.md
+    - Advanced Search Patterns: search/advanced-search-patterns.md
+  - Media Systems:
+    - Video Transcoding and Playback: media/video-transcoding-and-playback.md
+    - File Chunking: media/file-chunking.md
+  - Probabilistic Data Structures:
+    - Overview: probabilistic/probabilistic-data-structures-overview.md
+    - "Bloom Filters: Fundamentals": probabilistic/bloom-filters-part-1.md
+    - "Bloom Filters: Advanced Techniques": probabilistic/bloom-filters-part-2.md
+    - "Count-Min Sketch: Fundamentals": probabilistic/count-min-sketch-part-1.md
+    - "Count-Min Sketch: Applications": probabilistic/count-min-sketch-part-2.md
+    - "HyperLogLog: Fundamentals": probabilistic/hyperloglog-part-1.md
+    - "HyperLogLog: System Design Applications": probabilistic/hyperloglog-part-2.md

@@ -1,0 +1,78 @@
+/* Completion checkbox on article pages */
+.completion-toggle {
+  margin: 0.5rem 0 1.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  background: var(--md-code-bg-color);
+  display: inline-block;
+}
+.completion-toggle label {
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.completion-toggle input:checked + span,
+.completion-toggle input:checked ~ * {
+  color: var(--md-accent-fg-color);
+}
+
+/* Sidebar tick marks for completed pages */
+.md-nav__link.completed-page::after {
+  content: " ✓";
+  color: #4caf50;
+  font-weight: 700;
+  margin-left: 0.3rem;
+}
+
+/* Progress tracker on index page */
+#progress-tracker {
+  margin: 1.5rem 0;
+}
+.category-progress, .overall-progress {
+  margin-bottom: 0.75rem;
+}
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+.progress-bar {
+  height: 8px;
+  background: var(--md-default-fg-color--lightest);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-bar.overall {
+  height: 12px;
+}
+.progress-fill {
+  height: 100%;
+  background: #4caf50;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+.overall-progress {
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+/* TOC read progress ticks */
+.md-sidebar--secondary .md-nav__link.toc-read::before {
+  content: "✓ ";
+  color: #4caf50;
+  font-weight: 700;
+}
+
+/* Sidebar category headings */
+.md-nav--nested > .md-nav__title,
+.md-nav__item--nested > .md-nav__link {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  margin-top: 0.75rem;
+  color: var(--md-accent-fg-color) !important;
+}
