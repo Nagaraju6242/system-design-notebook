@@ -35,6 +35,7 @@ The fundamentals of building systems that span multiple machines — failures, c
 | [Distributed Transactions](distributed-systems/distributed-transactions.md) | 2PC, Saga pattern, choreography vs orchestration |
 | [Failure Handling Patterns](distributed-systems/failure-handling-patterns.md) | Retries, circuit breakers, bulkheads, load shedding |
 | [Consensus Algorithms](distributed-systems/consensus-algorithms.md) | Paxos, Raft, leader election |
+| [Consistent Hashing](distributed-systems/consistent-hashing.md) | Hash ring, virtual nodes, minimal key remapping |
 
 ### [Geospatial Search](geospatial/geospatial-search-introduction.md)
 

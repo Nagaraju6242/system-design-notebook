@@ -87,6 +87,7 @@ function updateIndexProgress() {
       "distributed-systems/distributed-transactions",
       "distributed-systems/failure-handling-patterns",
       "distributed-systems/consensus-algorithms",
+      "distributed-systems/consistent-hashing",
     ],
     "Geospatial Search": [
       "geospatial/geospatial-search-introduction",

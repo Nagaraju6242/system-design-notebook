@@ -56,6 +56,7 @@ nav:
     - Distributed Transactions: distributed-systems/distributed-transactions.md
     - Failure Handling Patterns: distributed-systems/failure-handling-patterns.md
     - Consensus Algorithms: distributed-systems/consensus-algorithms.md
+    - Consistent Hashing: distributed-systems/consistent-hashing.md
   - Geospatial Search:
     - Geospatial Search Introduction: geospatial/geospatial-search-introduction.md
     - Geohash: geospatial/geohash.md
